@@ -1,11 +1,14 @@
 const mysql = require("mysql2");
 
 const pool = mysql.createPool(
+  // mysql://efzuvkvci51trqf7:zretpktvmne8vgbe@uzb4o9e2oe257glt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/tzoi81meqqhe5256?reconnect=true
+
   process.env.JAWSDB_URL ?? {
-    host: "uzb4o9e2oe257glt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    user: "efzuvkvci51trqf7",
-    database: "tzoi81meqqhe5256",
-    password: "zretpktvmne8vgbe",
+    Host: "uzb4o9e2oe257glt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    Username: "efzuvkvci51trqf7",
+    Database: "tzoi81meqqhe5256",
+    Password: "zretpktvmne8vgbe",
+    Port: 3306,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
