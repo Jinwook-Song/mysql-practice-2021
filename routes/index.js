@@ -4,7 +4,7 @@ var router = express.Router();
 var sql = require("../database/sql");
 
 /* GET home page. */
-const sectionIcons = ["🍚", "🍿", "🍜", "🍣", "🥩", "☕", "🍰"];
+const sectionIcons = ["🍚", "🍝", "🍜", "🍣", "🥩", "☕", "🍰"];
 
 const statusKorMap = {
   OPN: "영업중",
