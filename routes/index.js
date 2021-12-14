@@ -50,6 +50,21 @@ router.get("/biz-adv", async function (req, res, next) {
     q: req.query,
     businesses,
   });
+
+  router.get("/business/:id", async function (req, res, next) {
+    const biz = await sql.getSingleBusinessJoined(req.params.id);
+    biz.status_kor = statusKorMap[biz.status];
+    biz.icon = sectionIcons[biz.section_id - 1];
+
+    const menus = await sql.getMenusOfBusiness(req.params.id);
+    const ratings = await sql.getRatingsOfBusiness(req.params.id);
+
+    res.render("detail", {
+      biz,
+      menus,
+      ratings,
+    });
+  });
 });
 
 module.exports = router;
