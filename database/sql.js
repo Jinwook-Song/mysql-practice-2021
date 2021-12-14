@@ -1,17 +1,22 @@
 const mysql = require("mysql2");
 
-const pool = mysql.createPool(
-  process.env.JAWSDB_URL ?? {
-    host: "localhost",
-    user: "jinwook",
-    database: "mydatabase",
-    // password: "12345678",
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0,
-  }
+// const pool = mysql.createPool(
+//   process.env.JAWSDB_URL ?? {
+//     host: "localhost",
+//     user: "jinwook",
+//     database: "mydatabase",
+//     // password: "12345678",
+//     waitForConnections: true,
+//     connectionLimit: 10,
+//     queueLimit: 0,
+//   }
+// );
+// const promisePool = pool.promise();
+
+var connection = mysql.createConnection(
+  "mysql://efzuvkvci51trqf7:zretpktvmne8vgbe@uzb4o9e2oe257glt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/tzoi81meqqhe5256"
 );
-const promisePool = pool.promise();
+const promisePool = connection.promise();
 
 const sql = {
   getSections: async () => {
