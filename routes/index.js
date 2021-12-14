@@ -70,6 +70,20 @@ router.get("/biz-adv", async function (req, res, next) {
     const result = await sql.updateMenuLikes(req.params.id, req.body.like);
     res.send(result);
   });
+
+  router.post("/ratings", async function (req, res, next) {
+    const result = await sql.addRating(
+      req.body.business_id,
+      req.body.stars,
+      req.body.comment
+    );
+    res.send(result);
+  });
+
+  router.delete("/ratings/:id", async function (req, res, next) {
+    const result = await sql.removeRating(req.params.id);
+    res.send(result);
+  });
 });
 
 module.exports = router;

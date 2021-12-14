@@ -76,6 +76,22 @@ const sql = {
       WHERE menu_id = ${id}
     `);
   },
+
+  addRating: async (business_id, stars, comment) => {
+    return await promisePool.query(`
+      INSERT INTO ratings
+      (fk_business_id, stars, comment)
+      VALUES
+      (${business_id}, '${stars}', '${comment}')
+    `);
+  },
+
+  removeRating: async (rating_id) => {
+    return await promisePool.query(`
+      DELETE FROM ratings
+      WHERE rating_id = ${rating_id}
+    `);
+  },
 };
 
 module.exports = sql;
