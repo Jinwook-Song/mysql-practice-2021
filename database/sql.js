@@ -16,6 +16,7 @@ const mysql = require("mysql2");
 var connection = mysql.createConnection(
   "mysql://efzuvkvci51trqf7:zretpktvmne8vgbe@uzb4o9e2oe257glt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/tzoi81meqqhe5256"
 );
+connection.connect();
 const promisePool = connection.promise();
 
 const sql = {
